@@ -1,0 +1,18 @@
+Subheading span elements .subheading span {
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effect for subheading spans */
+.subheading span:hover {
+  transform: scale(1.1); /* Slightly enlarge the element */
+  background-color: #0d6efd; /* Change background to blue */
+  color: white; /* Change text color to white */
+}
+.fingerprint-line {
+  background-color: #340052; /* Vibrant blue background color */
+  border-radius:0px 20px 20px 0px; /* Optional: Adds rounded corners to the container */
+  color: white;
+  padding: 10px; /* Optional: Adds padding around the text */
+
+}
