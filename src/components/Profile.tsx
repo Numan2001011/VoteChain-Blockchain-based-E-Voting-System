@@ -1,19 +1,18 @@
 import React, { useState } from "react";
 import "./Profile.css";
-
-interface UserData {
-  usertype: string;
-  name: string;
-  fathersname: string;
-  mothersname: string;
-  dob: string;
-  nid: string;
-}
+import { useNavigate } from "react-router-dom";
+import { Users, UserData } from "./Profileinfo";
 
 const Profile = () => {
   // Initialize userdata with default values to avoid undefined access
-  const [userdata, setUserData] = useState<UserData | null>(null);
-
+  const [userdata, setUserData] = useState<UserData | null>(Users[0]);
+  const navigate = useNavigate();
+  const handleExit = () => {
+    const confirmExit = window.confirm("Are you sure you want to exit?");
+    if (confirmExit) {
+      navigate("/");
+    }
+  };
   return (
     <>
       <section style={{ backgroundColor: "#eee" }}>
@@ -31,12 +30,40 @@ const Profile = () => {
                   />
                   <h5 className="my-3">{userdata?.name || "N/A"}</h5>
                   <p className="text-muted mb-1">
-                    User Type: {userdata?.usertype || "N/A"}
+                    User Type:
+                    <span className="fw-bold text-success">
+                      {" "}
+                      {userdata?.usertype || "N/A"}
+                    </span>
+                  </p>
+
+                  <p className="text-muted mb-1">
+                    Address:
+                    <span className="fw-bold text-primary">
+                      {" "}
+                      {userdata?.userlocation || "N/A"}
+                    </span>
+                  </p>
+
+                  <p className="text-muted mb-1">
+                    Voting Status:
+                    <span
+                      className={
+                        userdata?.votingstatus == "NOT DONE"
+                          ? "fw-bold text-danger"
+                          : "fw-bold text-success"
+                      }
+                    >
+                      {" "}
+                      {userdata?.votingstatus || "N/A"}
+                    </span>
                   </p>
                 </div>
               </div>
               <div className="d-flex justify-content-center">
-                <button className="exit-btn">EXIT</button>
+                <button className="exit-btn" onClick={handleExit}>
+                  EXIT
+                </button>
               </div>
             </div>
 
@@ -51,50 +78,50 @@ const Profile = () => {
                 {/* Card Body */}
                 <div className="card-body">
                   <div className="row">
-                    <div className="col-sm-3">
+                    <div className="col-sm-4">
                       <p className="mb-0 fw-bold">Full Name</p>
                     </div>
-                    <div className="col-sm-9">
+                    <div className="col-sm-8">
                       <p className="mb-0">{userdata?.name || "N/A"}</p>
                     </div>
                   </div>
                   <hr />
 
                   <div className="row">
-                    <div className="col-sm-3">
+                    <div className="col-sm-4">
                       <p className="mb-0 fw-bold">Father's Name</p>
                     </div>
-                    <div className="col-sm-9">
+                    <div className="col-sm-8">
                       <p className="mb-0">{userdata?.fathersname || "N/A"}</p>
                     </div>
                   </div>
                   <hr />
 
                   <div className="row">
-                    <div className="col-sm-3">
+                    <div className="col-sm-4">
                       <p className="mb-0 fw-bold">Mother's Name</p>
                     </div>
-                    <div className="col-sm-9">
+                    <div className="col-sm-8">
                       <p className="mb-0">{userdata?.mothersname || "N/A"}</p>
                     </div>
                   </div>
                   <hr />
 
                   <div className="row">
-                    <div className="col-sm-3">
+                    <div className="col-sm-4">
                       <p className="mb-0 fw-bold">Date of Birth</p>
                     </div>
-                    <div className="col-sm-9">
+                    <div className="col-sm-8">
                       <p className="mb-0">{userdata?.dob || "N/A"}</p>
                     </div>
                   </div>
                   <hr />
 
                   <div className="row">
-                    <div className="col-sm-3">
+                    <div className="col-sm-4">
                       <p className="mb-0 fw-bold">NID</p>
                     </div>
-                    <div className="col-sm-9">
+                    <div className="col-sm-8">
                       <p className="mb-0 text-danger fw-bold">
                         {userdata?.nid || "N/A"}
                       </p>
@@ -106,9 +133,13 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <div className="container d-flex justify-content-center">
-          <button className="cast-vote-btn">CAST YOUR VOTE</button>
-        </div>
+        {userdata?.votingstatus == "NOT DONE" ? (
+          <div className="container d-flex justify-content-center">
+            <button className="cast-vote-btn">CAST YOUR VOTE</button>
+          </div>
+        ) : (
+          ""
+        )}
       </section>
       <section></section>
     </>
