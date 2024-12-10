@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./Profile.css";
 import { useNavigate } from "react-router-dom";
-import { Users, UserData } from "./Profileinfo";
+import { Voters, VoterData } from "./VoterInfo";
 
 const Profile = () => {
   // Initialize userdata with default values to avoid undefined access
-  const [userdata, setUserData] = useState<UserData | null>(Users[0]);
+  const [voterdata, setVoterData] = useState<VoterData | null>(Voters[0]);
   const navigate = useNavigate();
   const handleExit = () => {
     const confirmExit = window.confirm("Are you sure you want to exit?");
@@ -28,12 +28,12 @@ const Profile = () => {
                     className="rounded-circle img-fluid"
                     style={{ width: "150px" }}
                   />
-                  <h5 className="my-3">{userdata?.name || "N/A"}</h5>
+                  <h5 className="my-3">{voterdata?.name || "N/A"}</h5>
                   <p className="text-muted mb-1">
                     User Type:
                     <span className="fw-bold text-success">
                       {" "}
-                      {userdata?.usertype || "N/A"}
+                      {voterdata?.usertype || "N/A"}
                     </span>
                   </p>
 
@@ -41,7 +41,7 @@ const Profile = () => {
                     Address:
                     <span className="fw-bold text-primary">
                       {" "}
-                      {userdata?.userlocation || "N/A"}
+                      {voterdata?.userlocation || "N/A"}
                     </span>
                   </p>
 
@@ -49,13 +49,13 @@ const Profile = () => {
                     Voting Status:
                     <span
                       className={
-                        userdata?.votingstatus == "NOT DONE"
+                        voterdata?.votingstatus == "NOT DONE"
                           ? "fw-bold text-danger"
                           : "fw-bold text-success"
                       }
                     >
                       {" "}
-                      {userdata?.votingstatus || "N/A"}
+                      {voterdata?.votingstatus || "N/A"}
                     </span>
                   </p>
                 </div>
@@ -82,7 +82,7 @@ const Profile = () => {
                       <p className="mb-0 fw-bold">Full Name</p>
                     </div>
                     <div className="col-sm-8">
-                      <p className="mb-0">{userdata?.name || "N/A"}</p>
+                      <p className="mb-0">{voterdata?.name || "N/A"}</p>
                     </div>
                   </div>
                   <hr />
@@ -92,7 +92,7 @@ const Profile = () => {
                       <p className="mb-0 fw-bold">Father's Name</p>
                     </div>
                     <div className="col-sm-8">
-                      <p className="mb-0">{userdata?.fathersname || "N/A"}</p>
+                      <p className="mb-0">{voterdata?.fathersname || "N/A"}</p>
                     </div>
                   </div>
                   <hr />
@@ -102,7 +102,7 @@ const Profile = () => {
                       <p className="mb-0 fw-bold">Mother's Name</p>
                     </div>
                     <div className="col-sm-8">
-                      <p className="mb-0">{userdata?.mothersname || "N/A"}</p>
+                      <p className="mb-0">{voterdata?.mothersname || "N/A"}</p>
                     </div>
                   </div>
                   <hr />
@@ -112,7 +112,7 @@ const Profile = () => {
                       <p className="mb-0 fw-bold">Date of Birth</p>
                     </div>
                     <div className="col-sm-8">
-                      <p className="mb-0">{userdata?.dob || "N/A"}</p>
+                      <p className="mb-0">{voterdata?.dob || "N/A"}</p>
                     </div>
                   </div>
                   <hr />
@@ -123,7 +123,7 @@ const Profile = () => {
                     </div>
                     <div className="col-sm-8">
                       <p className="mb-0 text-danger fw-bold">
-                        {userdata?.nid || "N/A"}
+                        {voterdata?.nid || "N/A"}
                       </p>
                     </div>
                   </div>
@@ -133,7 +133,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        {userdata?.votingstatus == "NOT DONE" ? (
+        {voterdata?.votingstatus == "NOT DONE" ? (
           <div className="container d-flex justify-content-center">
             <button className="cast-vote-btn">CAST YOUR VOTE</button>
           </div>

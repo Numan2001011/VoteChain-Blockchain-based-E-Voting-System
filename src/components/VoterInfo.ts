@@ -1,4 +1,4 @@
-export interface UserData {
+export interface VoterData {
   usertype: string;
   userlocation: string;
   votingstatus: string;
@@ -8,10 +8,10 @@ export interface UserData {
   dob: string;
   nid: string;
 }
-export const Users: UserData[] = [
+export const Voters: VoterData[] = [
   {
     usertype: "Voter",
-    userlocation: "Gazipur",
+    userlocation: "Tangail 02",
     votingstatus: "NOT DONE",
     name: "Md. Numanur Rahman",
     fathersname: "Md. Habibur Rahman",

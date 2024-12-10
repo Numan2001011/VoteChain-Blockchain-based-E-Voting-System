@@ -14,7 +14,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/voting" element={<Votingpage />} />
+          {/* <Route path="/voting" element={<Votingpage />} /> */}
+          <Route path="/newvoting" element={<Newvoting />} />
         </Routes>
       </Router>
     </>
