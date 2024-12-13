@@ -1,7 +1,9 @@
 export interface CandidateData {
+  cid: number;
   cimage: string;
   cname: string;
   location: string;
+  party: string;
   symbolimg: string;
   symbolname: string;
 }
@@ -9,45 +11,57 @@ export interface CandidateData {
 export const Candidates: CandidateData[] = [
   //Tangail Zilla
   {
-    cimage: "./images/c1.png",
+    cid: 1,
+    cimage: "../../images/c1.png",
     cname: "Md. Shahidul Islam",
     location: "Tangail 01",
-    symbolimg: "./images/marka1.png",
+    party: "Awami League",
+    symbolimg: "../../images/marka1.png",
     symbolname: "Murgi",
   },
   {
-    cimage: "./images/c2.png",
+    cid: 2,
+    cimage: "../../images/c2.png",
     cname: "Shariful Islam",
     location: "Tangail 01",
-    symbolimg: "./images/marka2.png",
+    party: "BNP",
+    symbolimg: "../../images/marka2.png",
     symbolname: "Boat",
   },
   {
-    cimage: "./images/c3.png",
+    cid: 3,
+    cimage: "../../images/c3.png",
     cname: "Jamilur Rahman",
     location: "Tangail 01",
-    symbolimg: "./images/marka3.png",
+    party: "Jamat-E-islami",
+    symbolimg: "../../images/marka3.png",
     symbolname: "Hatpakha",
   },
   {
-    cimage: "./images/c1.png",
+    cid: 4,
+    cimage: "../.../../images/c1.png",
     cname: "Jalal Uddin",
     location: "Tangail 02",
-    symbolimg: "./images/marka1.png",
+    party: "Awami League",
+    symbolimg: "../../images/marka1.png",
     symbolname: "Murgi",
   },
   {
-    cimage: "./images/c2.png",
+    cid: 5,
+    cimage: "../../images/c2.png",
     cname: "Jolil Khan",
     location: "Tangail 02",
-    symbolimg: "./images/marka2.png",
+    party: "BNP",
+    symbolimg: "../../images/marka2.png",
     symbolname: "Boat",
   },
   {
-    cimage: "./images/c3.png",
+    cid: 6,
+    cimage: "../../images/c3.png",
     cname: "Jahed Hasan",
     location: "Tangail 02",
-    symbolimg: "./images/marka3.png",
+    party: "Jamat-E-Islami",
+    symbolimg: "../../images/marka3.png",
     symbolname: "Hatpakha",
   },
 ];

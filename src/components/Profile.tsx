@@ -7,6 +7,9 @@ const Profile = () => {
   // Initialize userdata with default values to avoid undefined access
   const [voterdata, setVoterData] = useState<VoterData | null>(Voters[0]);
   const navigate = useNavigate();
+  const handleCastVoteBtn = () => {
+    navigate("/voting");
+  }
   const handleExit = () => {
     const confirmExit = window.confirm("Are you sure you want to exit?");
     if (confirmExit) {
@@ -69,7 +72,7 @@ const Profile = () => {
 
             {/* Right Section: User Info */}
             <div className="col-lg-8">
-              <div className="card mb-4">
+              <div className="card">
                 {/* Header */}
                 <div className="d-flex bg-info bg-opacity-75 shadow-sm">
                   <h2 className="mx-auto mt-2 mb-3">Voter's Info</h2>
@@ -135,7 +138,7 @@ const Profile = () => {
         </div>
         {voterdata?.votingstatus == "NOT DONE" ? (
           <div className="container d-flex justify-content-center">
-            <button className="cast-vote-btn">CAST YOUR VOTE</button>
+            <button className="cast-vote-btn" onClick={handleCastVoteBtn}>CAST YOUR VOTE</button>
           </div>
         ) : (
           ""

@@ -12,7 +12,7 @@ const CandidateCard: React.FC<CandidateProps> = ({ candidate, onSelect }) => {
       <div className="row">
         <div className="cols-12">
           <div className="card d-flex flex-row justify-content-between">
-            <div className="col-md-6 d-flex flex-row">
+            <div className="col-md-6 d-flex justify-content-start align-items-center">
               <div className="cimage">
                 <img
                   src={candidate.cimage}
@@ -20,9 +20,9 @@ const CandidateCard: React.FC<CandidateProps> = ({ candidate, onSelect }) => {
                   className="candidate-image"
                 />
               </div>
-              <div className="d-flex  flex-column justify-content-center">
+              <div className="d-flex flex-column justify-content-center">
                 <h5 className="candidate-name">{candidate.cname}</h5>
-                <p className="candidate-sublocation">{candidate.sublocation}</p>
+                <p className="candidate-sublocation">{candidate.location}</p>
               </div>
             </div>
             <div className="col-md-3 mx-2 d-flex flex-row justify-content-between align-items-center symbol-div">
@@ -35,7 +35,7 @@ const CandidateCard: React.FC<CandidateProps> = ({ candidate, onSelect }) => {
             </div>
             <div className="col-md-2 d-flex justify-content-center">
               <button className="vote-btn" onClick={() => onSelect(candidate)}>
-                Vote
+                Select
               </button>
             </div>
           </div>

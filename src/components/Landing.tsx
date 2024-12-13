@@ -1,39 +1,40 @@
 import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
-import "./Landing.css"; // Custom CSS
-import evoting from "../../public/images/evoting.png";
-import fingerprint from "../../public/images/fingerprint.jpg";
+import "bootstrap/dist/css/bootstrap.min.css"; 
+import "./Landing.css";
+import evoting from "../../images/evoting.png";
+import fingerprint from "../../images/fingerprint.jpg";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // Fixed import
+import { useNavigate } from "react-router-dom";
 
 const Landing: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(false); // Controls spinner visibility
-  const [isError, setIsError] = useState(false); // Tracks fingerprint validation error
-  const navigate = useNavigate(); // React Router's navigation hook
+  const [isLoading, setIsLoading] = useState(false); 
+  const [isError, setIsError] = useState(false); 
+  const navigate = useNavigate(); 
 
   const handleFingerprintClick = async () => {
-    setIsLoading(true); // Show spinner while processing fingerprint
-    setIsError(false); // Reset error state
+    setIsLoading(true); 
+    setIsError(false); 
+    navigate("/profile");
 
-    try {
-      const response = await axios.get(
-        "http://localhost:5000/verifyfingerprint"
-      );
+    // try {
+    //   const response = await axios.get(
+    //     "http://localhost:5000/verifyfingerprint"
+    //   );
 
-      if (response.data.success) {
-        setIsLoading(false); // Hide spinner
-        navigate("/profile"); // Navigate to the next page if verification succeeds
-      } else {
-        alert("You are not Valid.");
-        setIsLoading(false); // Hide spinner
-        setIsError(true); // Show error message
-      }
-    } catch (error) {
-      alert("Error while verification");
-      console.error("Error verifying fingerprint:", error);
-      setIsLoading(false); // Hide spinner
-      setIsError(true); // Show error message
-    }
+    //   if (response.data.success) {
+    //     setIsLoading(false); 
+    //     navigate("/profile"); 
+    //   } else {
+    //     alert("You are not Valid.");
+    //     setIsLoading(false);
+    //     setIsError(true); 
+    //   }
+    // } catch (error) {
+    //   alert("Error while verification");
+    //   console.error("Error verifying fingerprint:", error);
+    //   setIsLoading(false); 
+    //   setIsError(true); 
+    // }
   };
 
   return (
