@@ -6,7 +6,7 @@ import "./VoteList.css";
 import { useNavigate } from "react-router-dom";
 
 const VotingList = () => {
-  const [voterdata, setVoterData] = React.useState<VoterData | null>(Voters[0]);
+  const [voterdata] = React.useState<VoterData | null>(Voters[0]);
 
   // Filter candidates based on user's location
   const filteredCandidates = Candidates.filter(

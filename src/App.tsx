@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Profile from "./components/Profile";
 import Votingpage from "./components/Voting/VotingList";
 import CastVote from "./components/Voting/CastVote";
-import Test from "./components/Voting/Test";
 
 function App() {
   return (

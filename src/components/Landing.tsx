@@ -3,17 +3,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./Landing.css";
 import evoting from "../../images/evoting.png";
 import fingerprint from "../../images/fingerprint.jpg";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Landing: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false); 
-  const [isError, setIsError] = useState(false); 
+  // const [isErnpmror, setIsError] = useState(false); 
   const navigate = useNavigate(); 
 
   const handleFingerprintClick = async () => {
     setIsLoading(true); 
-    setIsError(false); 
+    // setIsError(false); 
     navigate("/profile");
 
     // try {

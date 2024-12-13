@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Profile.css";
 import { useNavigate } from "react-router-dom";
 import { Voters, VoterData } from "./VoterInfo";
 
 const Profile = () => {
   // Initialize userdata with default values to avoid undefined access
-  const [voterdata, setVoterData] = useState<VoterData | null>(Voters[0]);
+  const [voterdata] = useState<VoterData | null>(Voters[0]);
   const navigate = useNavigate();
   const handleCastVoteBtn = () => {
     navigate("/voting");
