@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css"; 
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./Landing.css";
-import evoting from "../../images/evoting.png";
-import fingerprint from "../../images/fingerprint.jpg";
+import evoting from "../../public/images/evoting.png";
+import fingerprint from "../../public/images/fingerprint.jpg";
 import { useNavigate } from "react-router-dom";
 
 const Landing: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(false); 
-  // const [isErnpmror, setIsError] = useState(false); 
-  const navigate = useNavigate(); 
+  const [isLoading, setIsLoading] = useState(false);
+  // const [isErnpmror, setIsError] = useState(false);
+  const navigate = useNavigate();
 
   const handleFingerprintClick = async () => {
-    setIsLoading(true); 
-    // setIsError(false); 
+    setIsLoading(true);
+    // setIsError(false);
     navigate("/profile");
 
     // try {
@@ -21,18 +21,18 @@ const Landing: React.FC = () => {
     //   );
 
     //   if (response.data.success) {
-    //     setIsLoading(false); 
-    //     navigate("/profile"); 
+    //     setIsLoading(false);
+    //     navigate("/profile");
     //   } else {
     //     alert("You are not Valid.");
     //     setIsLoading(false);
-    //     setIsError(true); 
+    //     setIsError(true);
     //   }
     // } catch (error) {
     //   alert("Error while verification");
     //   console.error("Error verifying fingerprint:", error);
-    //   setIsLoading(false); 
-    //   setIsError(true); 
+    //   setIsLoading(false);
+    //   setIsError(true);
     // }
   };
 
